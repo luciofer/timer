@@ -33,9 +33,8 @@ export function CyclesContextProvider({
         activeCycleId: null
     }, () => {
         const storedStageAsJSON = localStorage.getItem('@ignite-timer:cycles-state-1.0.0')
-        if (storedStageAsJSON){
-            return JSON.parse(storedStageAsJSON)
-        }
+        return storedStageAsJSON ? JSON.parse(storedStageAsJSON) : { cycles: [], activeCycleId: null }
+        
     })
 
     const { cycles, activeCycleId } = cyclesState
